@@ -10,14 +10,11 @@ class RcReport extends StatefulWidget {
 }
 
 class _RcReportState extends State<RcReport> {
-  // By default today's date
-  DateTime selectedDate = DateTime.now();
+   DateTime selectedDate = DateTime.now();
 
-  // Format the date
-  String get formattedDate => DateFormat('dd/MM/yyyy').format(selectedDate);
+   String get formattedDate => DateFormat('dd/MM/yyyy').format(selectedDate);
 
-  // Date Picker function
-  Future<void> _selectDate(BuildContext context) async {
+   Future<void> _selectDate(BuildContext context) async {
     final DateTime? picked = await showDatePicker(
       context: context,
       initialDate: selectedDate, // default = today
@@ -30,6 +27,69 @@ class _RcReportState extends State<RcReport> {
         selectedDate = picked;
       });
     }
+  }
+
+   void _showNoReportsDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (context) => Dialog(
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.zero, 
+        ),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+             
+            Container(
+              color: Colors.red,
+              width: double.infinity,
+              padding: const EdgeInsets.all(16),
+              child: const Text(
+                "NO REPORTS",
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 18,
+                  color: Colors.white,
+                ),
+              ),
+            ),
+
+             
+            Container(
+              color: Colors.white,
+              width: double.infinity,
+              padding: const EdgeInsets.all(20),
+              child: const Text(
+                "NO REPORTS FOUND FOR SELECTED DATE",
+                textAlign: TextAlign.center,
+                style: TextStyle(fontSize: 12),
+              ),
+            ),
+
+            
+            Container(
+              color: Colors.white,
+              padding: const EdgeInsets.all(12),
+              child: Center(
+                child: Container(
+                  width: 100,
+                  height: 40,
+                  decoration: BoxDecoration(
+                    border: Border.all(color: Colors.black),
+                    borderRadius: BorderRadius.zero,
+                  ),
+                  child: TextButton(
+                    onPressed: () => Navigator.pop(context),
+                    child: const Text("OK"),
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
   }
 
   @override
@@ -116,13 +176,7 @@ class _RcReportState extends State<RcReport> {
                             ),
                           ),
                           onPressed: () {
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              SnackBar(
-                                content: Text(
-                                  "Fetching report for $formattedDate",
-                                ),
-                              ),
-                            );
+                            _showNoReportsDialog(context);
                           },
                           child: const Text("GET REPORT"),
                         ),

@@ -1,3 +1,4 @@
+// ignore: file_names
 import 'package:flutter/material.dart';
 import 'package:online_pr/Online-Pr/duplicate_pr.dart';
 import 'package:online_pr/Online-Pr/print_last_pr.dart';
@@ -25,10 +26,9 @@ class _OnlinePrMenuState extends State<OnlinePrMenu> {
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start, // align left
+          crossAxisAlignment: CrossAxisAlignment.start,  
           children: [
-            // First Row (3 icons)
-            Row(
+             Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Expanded(
@@ -37,8 +37,6 @@ class _OnlinePrMenuState extends State<OnlinePrMenu> {
                     Icons.collections,
                     "ONLINE COLLECTION",
                     () {
-                      debugPrint("ONLINE COLLECTION pressed");
-                      // 👉 Navigate or show dialog here
                     },
                   ),
                 ),
@@ -72,9 +70,8 @@ class _OnlinePrMenuState extends State<OnlinePrMenu> {
                 ),
               ],
             ),
-            const SizedBox(height: 40), // space between rows
-            // Second Row (1 icon directly below first icon of row 1)
-            Row(
+            const SizedBox(height: 40),  
+             Row(
               children: [
                 Expanded(
                   flex: 2,
@@ -85,7 +82,7 @@ class _OnlinePrMenuState extends State<OnlinePrMenu> {
                     );
                   }),
                 ),
-                const Spacer(flex: 4), // pushes it below the first icon only
+                const Spacer(flex: 4),  
               ],
             ),
           ],
@@ -94,8 +91,7 @@ class _OnlinePrMenuState extends State<OnlinePrMenu> {
     );
   }
 
-  // Reusable widget for Icon + Label + onTap
-  Widget buildMenuIcon(IconData icon, String label, VoidCallback onTap) {
+   Widget buildMenuIcon(IconData icon, String label, VoidCallback onTap) {
     return InkWell(
       onTap: onTap,
       borderRadius: BorderRadius.circular(12),

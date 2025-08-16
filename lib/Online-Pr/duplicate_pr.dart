@@ -12,13 +12,12 @@ void _showCustomDialog(BuildContext context) {
     context: context,
     builder: (context) => Dialog(
       shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.zero, // rectangle shape (no rounded edges)
+        borderRadius: BorderRadius.zero,  
       ),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          // Top Row - Yellow background
-          Container(
+           Container(
             color: Colors.yellow,
             width: double.infinity,
             padding: const EdgeInsets.all(16),
@@ -29,8 +28,7 @@ void _showCustomDialog(BuildContext context) {
             ),
           ),
 
-          // Bottom Row - White background with message
-          Container(
+           Container(
             color: Colors.white,
             width: double.infinity,
             padding: const EdgeInsets.all(20),
@@ -127,7 +125,7 @@ class _DuplicatePrState extends State<DuplicatePr> {
                       const TextField(
                         decoration: InputDecoration(
                           border:
-                              const UnderlineInputBorder(), // bottom border only
+                              const UnderlineInputBorder(),  
                           enabledBorder: const UnderlineInputBorder(
                             borderSide: BorderSide(
                               color: Colors.black,
@@ -137,7 +135,7 @@ class _DuplicatePrState extends State<DuplicatePr> {
                             borderSide: BorderSide(
                               color: Colors.blue,
                               width: 2,
-                            ), // when focused
+                            ),  
                           ),
                           //hintText: "Enter USCNO",
                         ),
@@ -156,17 +154,17 @@ class _DuplicatePrState extends State<DuplicatePr> {
                       const TextField(
                         decoration: InputDecoration(
                           border:
-                              const UnderlineInputBorder(), // bottom border only
+                              const UnderlineInputBorder(),  
                           enabledBorder: const UnderlineInputBorder(
                             borderSide: BorderSide(
                               color: Colors.black,
-                            ), // border color
+                            ),  
                           ),
                           focusedBorder: const UnderlineInputBorder(
                             borderSide: BorderSide(
                               color: Colors.blue,
                               width: 2,
-                            ), // when focused
+                            ),  
                           ),
                           //hintText: "Enter USCNO",
                         ),
@@ -192,13 +190,13 @@ class _DuplicatePrState extends State<DuplicatePr> {
                           enabledBorder: const UnderlineInputBorder(
                             borderSide: BorderSide(
                               color: Colors.black,
-                            ), // border color
+                            ),  
                           ),
                           focusedBorder: const UnderlineInputBorder(
                             borderSide: BorderSide(
                               color: Colors.blue,
                               width: 2,
-                            ), // when focused
+                            ), 
                           ),
                           // hintText: "Enter USCNO",
                         ),

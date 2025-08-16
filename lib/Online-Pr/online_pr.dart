@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:online_pr/Online-Pr/online_Pr_Menu.dart';
+import 'package:online_pr/Online-Pr/online_pr_menu.dart';
 
 class OnlinePr extends StatefulWidget {
   const OnlinePr({super.key});
@@ -9,8 +9,8 @@ class OnlinePr extends StatefulWidget {
 }
 
 class _OnlinePrState extends State<OnlinePr> {
-  String? acdValue; // For INCLUDE ACD AMT
-  String? rcValue; // For INCLUDE RC AMT
+  String? acdValue;
+  String? rcValue;
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +27,6 @@ class _OnlinePrState extends State<OnlinePr> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            // First card
             SizedBox(
               width: double.infinity,
               child: Card(
@@ -46,8 +45,14 @@ class _OnlinePrState extends State<OnlinePr> {
                       const SizedBox(height: 6),
                       const TextField(
                         decoration: InputDecoration(
-                          border: OutlineInputBorder(),
-                          hintText: "Enter USCNO",
+                          border: UnderlineInputBorder(),
+                          enabledBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(color: Colors.black),
+                          ),
+                          focusedBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(color: Colors.red, width: 2),
+                          ),
+                          // hintText: "Enter USCNO",
                         ),
                       ),
                       const Padding(
@@ -63,8 +68,14 @@ class _OnlinePrState extends State<OnlinePr> {
                       const SizedBox(height: 6),
                       const TextField(
                         decoration: InputDecoration(
-                          border: OutlineInputBorder(),
-                          hintText: "Enter SCNO",
+                          border: UnderlineInputBorder(),
+                          enabledBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(color: Colors.black),
+                          ),
+                          focusedBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(color: Colors.red, width: 2),
+                          ),
+                          // hintText: "Enter SCNO",
                         ),
                       ),
                       const SizedBox(height: 12),
@@ -100,7 +111,6 @@ class _OnlinePrState extends State<OnlinePr> {
               ),
             ),
 
-            // Second card
             SizedBox(
               width: double.infinity,
               child: Card(
@@ -126,7 +136,6 @@ class _OnlinePrState extends State<OnlinePr> {
                       ),
                       const SizedBox(height: 12),
 
-                      // Bill details rows
                       _buildDetailRow("NAME", "-"),
                       const Divider(thickness: 1, color: Colors.grey),
 
@@ -283,7 +292,6 @@ class _OnlinePrState extends State<OnlinePr> {
     );
   }
 
-  // helper method for bill detail rows
   Widget _buildDetailRow(String label, String value) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 4.0),

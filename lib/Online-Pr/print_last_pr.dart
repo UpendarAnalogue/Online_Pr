@@ -8,6 +8,64 @@ class PrintLastPr extends StatefulWidget {
 }
 
 class _PrintLastPrState extends State<PrintLastPr> {
+  void _showNoLastPrints(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (context) => Dialog(
+        shape: const RoundedRectangleBorder(borderRadius: BorderRadius.zero),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Container(
+              color: Colors.red,
+              width: double.infinity,
+              padding: const EdgeInsets.all(16),
+              child: const Text(
+                "ERROR",
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 18,
+                  color: Colors.white,
+                ),
+              ),
+            ),
+
+            Container(
+              color: Colors.white,
+              width: double.infinity,
+              padding: const EdgeInsets.all(20),
+              child: const Text(
+                "NO DATA",
+                textAlign: TextAlign.center,
+                style: TextStyle(fontSize: 12),
+              ),
+            ),
+
+            Container(
+              color: Colors.white,
+              padding: const EdgeInsets.all(12),
+              child: Center(
+                child: Container(
+                  width: 100,
+                  height: 40,
+                  decoration: BoxDecoration(
+                    border: Border.all(color: Colors.black),
+                    borderRadius: BorderRadius.zero,
+                  ),
+                  child: TextButton(
+                    onPressed: () => Navigator.pop(context),
+                    child: const Text("OK"),
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,35 +81,31 @@ class _PrintLastPrState extends State<PrintLastPr> {
         title: const Text('PRINT LAST PR', style: TextStyle(fontSize: 18)),
       ),
       body: Center(
-  child: InkWell(
-    onTap: () {
-      // Handle button click
-      // print("PRINT LAST PR Clicked");
-    },
-    borderRadius: BorderRadius.circular(70), // to match circle ripple
-    child: Container(
-      width: 140,  // Circle width
-      height: 140, // Circle height
-      decoration: const BoxDecoration(
-        shape: BoxShape.circle, // Makes it a circle
-        color: Color.fromARGB(255, 6, 14, 168), // Circle background color
-      ),
-      child: const Center(
-        child: Text(
-          "PRINT LAST PR",
-          textAlign: TextAlign.center,
-          style: TextStyle(
-            color: Colors.white, // Text color
-            fontWeight: FontWeight.bold,
+        child: InkWell(
+          onTap: () {
+            _showNoLastPrints(context);
+          },
+          borderRadius: BorderRadius.circular(70),
+          child: Container(
+            width: 140,
+            height: 140,
+            decoration: const BoxDecoration(
+              shape: BoxShape.circle,
+              color: Color.fromARGB(255, 6, 14, 168),
+            ),
+            child: const Center(
+              child: Text(
+                "PRINT LAST PR",
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
           ),
         ),
       ),
-    ),
-  ),
-)
-
     );
   }
-
-  // Exit Confirmation Dialog
 }
