@@ -18,7 +18,12 @@ class _OnlinePrState extends State<OnlinePr> {
       appBar: AppBar(
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
-          onPressed: () => Navigator.pop(context),
+          onPressed: () =>     Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const OnlinePrMenu(),
+                              ),
+                            )
         ),
         backgroundColor: const Color.fromARGB(255, 16, 156, 188),
         title: const Text('ONLINE PR', style: TextStyle(fontSize: 18)),
@@ -94,12 +99,7 @@ class _OnlinePrState extends State<OnlinePr> {
                             ),
                           ),
                           onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => const OnlinePrMenu(),
-                              ),
-                            );
+                         
                           },
 
                           child: const Text("GET BILL DETAILS"),
